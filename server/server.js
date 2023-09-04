@@ -22,6 +22,15 @@ app.post('/create', async(req, res, next) => {
   }
 })
 
+app.get('/', async(req, res, next) => {
+  try {
+    res.send('all good');
+  }
+  catch(err){
+    next(err);
+  }
+})
+
 app.get('/puzzle/:id', async(req, res, next) => {
   try {
     const puzzle = await Puzzle.findByPk(req.params.id, { include: { model: Collection, as: 'rows' }});
