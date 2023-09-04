@@ -9,9 +9,8 @@ app.use(cors());
 
 
 app.post('/create', async(req, res, next) => {
-  console.log(req.body)
   try {
-    const newPuzzle = await Puzzle.create({author: req.body.author});
+    const newPuzzle = await Puzzle.create(req.body.author);
     await Collection.create({...req.body.rows[0], puzzleId: newPuzzle.id});
     await Collection.create({...req.body.rows[1], puzzleId: newPuzzle.id});
     await Collection.create({...req.body.rows[2], puzzleId: newPuzzle.id});
