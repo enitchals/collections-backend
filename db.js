@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const {STRING, ARRAY, BOOLEAN} = Sequelize;
 
-const db = new Sequelize('postgres://localhost/collections-backend');
+const db = new Sequelize(process.env.POSTGRES_URL);
 
 const Puzzle = db.define('puzzle', {
   author: STRING
