@@ -41,7 +41,7 @@ app.get('/puzzle/:id', async(req, res, next) => {
   }
 })
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const init = async() => {
   try{
