@@ -46,7 +46,7 @@ const PORT = process.env.PORT || 3000;
 const init = async() => {
   try{
     await db.authenticate();
-    await syncAndSeed();
+    // await syncAndSeed();
     app.listen(PORT, () => console.log(`Connections backend listening on port ${PORT}`))
   }
   catch(err){
