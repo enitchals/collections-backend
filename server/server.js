@@ -33,7 +33,11 @@ app.get('/', async(req, res, next) => {
 
 app.get('/puzzles/all', async(req, res, next) => {
   try {
-    const puzzles = await Puzzle.findAll();
+    const puzzles = await Puzzle.findAll({
+      where: {
+        public: true
+      }
+    });
     res.send(puzzles);
   }
   catch(err){
