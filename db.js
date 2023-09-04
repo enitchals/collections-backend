@@ -30,7 +30,7 @@ Collection.belongsTo(Puzzle)
 Puzzle.hasMany(Collection, {as: 'rows'})
 
 const syncAndSeed = async() => {
-  await db.sync({force: true});
+  // await db.sync({force: true});
 }
 
 
