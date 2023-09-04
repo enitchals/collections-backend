@@ -31,6 +31,16 @@ app.get('/', async(req, res, next) => {
   }
 })
 
+app.get('/puzzles/all', async(req, res, next) => {
+  try {
+    const puzzles = await Puzzle.findAll();
+    res.send(puzzles);
+  }
+  catch(err){
+    next(err);
+  }
+})
+
 app.get('/puzzle/:id', async(req, res, next) => {
   try {
     const puzzle = await Puzzle.findByPk(req.params.id, { include: { model: Collection, as: 'rows' }});
