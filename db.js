@@ -5,7 +5,7 @@ const db = new Sequelize(process.env.POSTGRES_URL);
 
 const Puzzle = db.define('puzzle', {
   author: STRING
-})
+}) 
 
 const Collection = db.define('collection', {
   theme: STRING,
